@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personal Finance Tip Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="main-bg"></div>
+  <div class="container glass-card">
+    <h1>
+      <img src="https://img.icons8.com/emoji/48/money-with-wings.png" alt="Finance" class="icon" />
+      Personal Finance Tip Generator
+    </h1>
+
+    <!-- API Key Form -->
+    <form id="apiForm" class="card">
+      <label>
+        <span class="label-text">Enter your Gemini API Key:</span>
+        <input type="password" id="apiKey" required placeholder="Paste your Gemini API key here" autocomplete="off" />
+      </label>
+      <button type="submit" class="btn">Save API Key</button>
+    </form>
+    <div id="guideBtnDiv" style="text-align: right; margin-top: -8px;">
+        <button type="button" class="btn" style="font-size: 0.9rem; padding: 8px 12px;" onclick="showGuide()">
+            How to get your Gemini API Key?
+        </button>
+    </div>
+
+    <!-- Financial Input Form -->
+    <form id="financeForm" class="card" style="display:none;">
+      <label>
+        <span class="label-text">Monthly Income (₹):</span>
+        <input type="number" id="income" required />
+      </label>
+      <label>
+        <span class="label-text">Monthly Expenses (₹):</span>
+        <input type="number" id="expenses" required />
+      </label>
+      <label>
+        <span class="label-text">Monthly Savings Goal (₹):</span>
+        <input type="number" id="goal" required />
+      </label>
+      <details id="advancedOptions" style="margin-top:12px; display:none;">
+        <summary style="cursor:pointer; font-weight:600;">Advanced Options</summary>
+        <label class="label-text">Financial Mindset:</label>
+        <select id="mindset">
+            <option value="balanced">Balanced</option>
+            <option value="aggressive">Aggressive saver</option>
+            <option value="relaxed">Relaxed spender</option>
+        </select>
+      </details>
+      <button type="submit" class="btn">Generate Tips</button>
+    </form>
+
+    <!-- Output -->
+    <div id="output" class="output-grid" style="display:none;">
+      <div class="output-card">
+        <h2>Smart Budgeting Advice</h2>
+        <pre id="financeTips"></pre>
+      </div>
+      <div style="text-align: right; margin-top: 18px;">
+        <button id="togglePromptBtn" class="btn" style="font-size: 0.9rem; padding: 8px 12px;">Show Prompt</button>
+      </div>
+    </div>
+
+    <footer>
+      <p>💡 Powered by <span class="gemini">Gemini AI</span> | <a href="https://github.com/" target="_blank">GitHub</a></p>
+    </footer>
+    <div class="copyright-bar"><span class="Copyright">Copyright © 2025 | Axtech | All rights reserved</span></div>
+  </div>
+    <div id="guideModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#00000055; z-index:10; justify-content:center; align-items:center;">
+        <div style="background:#fff; max-width:540px; padding:24px 28px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.2);">
+            <h2 style="margin-top:0;">🧠 How to Get Your Gemini API Key</h2>
+            <ol style="line-height:1.7;">
+            <li>Go to <a href="https://aistudio.google.com/app/apikey" target="_blank">aistudio.google.com/app/apikey</a>.</li>
+            <li>Sign in with your Google account.</li>
+            <li>Click <b>"Create API Key"</b> and copy it.</li>
+            <li>Paste the key above and click Save.</li>
+            </ol>
+            <button class="btn" onclick="hideGuide()" style="margin-top:12px;">Got It</button>
+        </div>
+    </div>
+    <div id="promptModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#00000055; z-index:11; justify-content:center; align-items:center;">
+      <div style="background:#fff; max-width:540px; padding:24px 28px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.2);">
+        <h2 style="margin-top:0;">📝 Prompt Sent to Gemini</h2>
+        <pre id="promptModalContent" style="background:#f3f4f6; border-radius:8px; padding:12px; font-size:0.98rem; color:#374151; white-space:pre-wrap;"></pre>
+        <button class="btn" onclick="hidePromptModal()" style="margin-top:12px;">Close</button>
+      </div>
+    </div>
+  <script src="app.js"></script>
+</body>
+</html>
