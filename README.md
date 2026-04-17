@@ -15,7 +15,7 @@ A web application that helps users generate smart, tailored budgeting tips using
 
 ## 🚀 Live Demo
 
-👉 [Your deployed URL goes here]
+👉 https://arrkkkk.github.io/Personal-Finance-Tip-Generator-by-Axtech/
 
 ---
 
