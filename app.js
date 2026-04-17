@@ -70,7 +70,7 @@ async function callGemini(prompt) {
     return "❌ API key not set.";
   }
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${userApiKey}`;
+  const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=${userApiKey}`;
 
   const payload = {
     contents: [
